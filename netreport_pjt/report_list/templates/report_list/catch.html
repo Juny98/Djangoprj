@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Catch</h1>
+    
+    <h2>보낸 데이터 : {{ message }}</h2>
+
+    <a href="{% url 'report_list:throw' %}">다시 테이터 보내러 가기</a>
+
+{% endblock content %}

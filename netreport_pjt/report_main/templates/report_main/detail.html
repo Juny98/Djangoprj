@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Detail</h1>
+    <hr>
+
+    <p>글 제목 : {{ text.title }}</p>
+    <p>글 내용 : {{ text.content }}</p>
+    <p>생성시각 : {{ text.created_at }}</p>
+    <p>수정시각 : {{ text.updated_at }}</p>
+
+    <hr>
+    <a href="{% url 'report_main:index' %}">목록보기</a>
+    <a href="{% url 'report_main:update' text.pk %}">수정하기</a>
+    <form action="{% url 'report_main:delete' text.pk %}" method="POSt">
+        {% csrf_token %}
+        <input type="submit" value="삭제하기">
+    </form>
+    <a href="{% url 'report_main:index' %}">[돌아가기]</a>
+
+{% endblock content %}
